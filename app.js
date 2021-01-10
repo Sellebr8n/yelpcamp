@@ -3,7 +3,6 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const express = require("express");
-const port = 3000;
 const path = require("path")
 const ejsMate = require("ejs-mate");
 const flash = require("connect-flash");
@@ -168,7 +167,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("error", {err});
 })
 
-
+const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`Serving On Port: ${port}`)
 });
